@@ -13,11 +13,11 @@ async def pins(self, request):
 	if current_status == True:
 		self.pin_status[p] = False
 		GPIO.output(int(p), False)
-		s = True
+		s = False
 	else:
 		self.pin_status[p] = True
 		GPIO.output(int(p), True)
-		s = False
+		s = True
 
 	res = dict(
 		code=200,
