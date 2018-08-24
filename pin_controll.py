@@ -1,4 +1,4 @@
-import asyncio
+import asyncio, json
 import RPi.GPIO as GPIO
 
 async def pins(self, request):
