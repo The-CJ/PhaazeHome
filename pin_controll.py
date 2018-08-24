@@ -26,7 +26,7 @@ def setup_pins(self):
 
 pin_status = dict()
 
-pin_status['1'] = False
+pin_status['3'] = False
 pin_status['5'] = False
 pin_status['7'] = False
 pin_status['11'] = False
