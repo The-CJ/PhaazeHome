@@ -3,20 +3,20 @@ import RPi.GPIO as GPIO
 
 async def pins(self, request):
 	p = request.query.get('pin', None)
-	if p != None:
+	if p == None:
 		return self.response(status=400)
 
 	current_status = self.pin_status.get(p, None)
-	if current_status != None:
+	if current_status == None:
 		return self.response(status=400)
 
 	if current_status == True:
 		self.pin_status[p] = False
-		GPIO.output(pin, False)
+		GPIO.output(p, False)
 		s = True
 	else:
 		self.pin_status[p] = True
-		GPIO.output(pin, True)
+		GPIO.output(p, True)
 		s = False
 
 	res = dict(
