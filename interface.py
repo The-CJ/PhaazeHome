@@ -3,6 +3,9 @@ import asyncio, mimetypes
 async def web_interface(self, request):
     path = request.path
 
+	if path == "/web":
+		path = "/web/html/master.html"
+
 	path = path.replace("..", "")
     path = path.strip('/')
 

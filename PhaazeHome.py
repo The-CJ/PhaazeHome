@@ -14,7 +14,7 @@ class PhaazeHome(object):
 		self.setup_pins()
 		self.response = self.send_back_response
 
-	from pin_controll import pins, setup_pins
+	from pin_controll import pins, setup_pins, pin_status
 	from interface import web_interface
 
 	def send_back_response(self, **kwargs):
