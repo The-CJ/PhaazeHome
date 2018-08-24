@@ -13,9 +13,18 @@ async def pins(self, request):
 	if current_status == True:
 		self.pin_status[p] = False
 		GPIO.output(pin, False)
+		s = True
 	else:
 		self.pin_status[p] = True
 		GPIO.output(pin, True)
+		s = False
+
+	res = dict(
+		code=200,
+		pin=p,
+		state=s
+	)
+	return self.response(status=200, body=json.dumps(res))
 
 def setup_pins(self):
 	GPIO.cleanup()
