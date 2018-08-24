@@ -18,7 +18,7 @@ async def pins(self, request):
 		GPIO.output(pin, True)
 
 def setup_pins(self):
-	GPIO.clearup()
+	GPIO.cleanup()
 	GPIO.setmode(GPIO.BOARD)
 	for pin in self.out_pins:
 		GPIO.setup(pin, GPIO.OUT)
