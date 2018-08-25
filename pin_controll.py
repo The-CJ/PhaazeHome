@@ -3,21 +3,32 @@ import RPi.GPIO as GPIO
 
 async def pins(self, request):
 	p = request.query.get('pin', None)
+	status = request.query.get('status', None)
+
+	multiple_pins = p.split(',')
+
 	if p == None:
 		return self.response(status=400)
 
-	current_status = self.pin_status.get(p, None)
-	if current_status == None:
-		return self.response(status=400)
+	for pin in multiple_pins:
 
-	if current_status == True:
-		self.pin_status[p] = False
-		GPIO.output(int(p), False)
-		s = False
-	else:
-		self.pin_status[p] = True
-		GPIO.output(int(p), True)
-		s = True
+		current_status = self.pin_status.get(pin, None)
+		if current_status == None:
+			return self.response(status=400, body=json.dumps(dict(msg=f"pin '{pin}' not found")))
+
+		if status in [True, False]:
+			GPIO.output(int(pin), status)
+			s = status
+			self.pin_status[pin] = status
+		else:
+			if current_status == True:
+				self.pin_status[pin] = False
+				GPIO.output(int(pin), False)
+				s = False
+			else:
+				self.pin_status[pin] = True
+				GPIO.output(int(pin), True)
+				s = True
 
 	res = dict(
 		code=200,

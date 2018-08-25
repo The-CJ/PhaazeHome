@@ -1,6 +1,10 @@
 function change_state(pins, status) {
 
-
+    let p = {'pin': pins.join(',')};
+    if (status != null) {
+      p['status'] = status;
+    }
+    $.get('/pins', p)
 
 }
 
