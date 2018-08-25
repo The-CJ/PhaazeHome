@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+  color: white;
+}
+
+body {
+  background: #023;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.btn {
+  padding: 1.25em 2.25em;
+  text-align: center;
+  color: black;
+  border-radius: 5px;
+  border-style: none;
+}
+.btn-block {
+  width: 100%;
+}
+
+.btn.on {
+  background: rgb(97, 250, 113);
+}
+.btn.off {
+  background: rgb(255, 147, 107);
+}
+.push-away > * {
+  margin: 2em;
+}

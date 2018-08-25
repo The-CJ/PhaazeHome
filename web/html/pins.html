@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>PhaazeHome - Pins</title>
+    <link rel="stylesheet" href="web/css/master.css">
+  </head>
+  <body>
+
+    <h1 class="center-text">Change Switch State</h1>
+
+    <div class="center-text push-away">
+      <button type="button" class="btn" pin="3" onclick="change_state([3])">Pin 1</button>
+      <button type="button" class="btn" pin="5" onclick="change_state([5])">Pin 2</button>
+      <button type="button" class="btn" pin="7" onclick="change_state([7])">Pin 3</button>
+      <button type="button" class="btn" pin="11" onclick="change_state([11])">Pin 4</button>
+      <button type="button" class="btn" pin="13" onclick="change_state([13])">Pin 5</button>
+      <button type="button" class="btn" pin="15" onclick="change_state([15])">Pin 6</button>
+      <button type="button" class="btn" pin="19" onclick="change_state([19])">Pin 7</button>
+      <button type="button" class="btn" pin="21" onclick="change_state([21])">Pin 8</button>
+    </div>
+
+    <div style="padding:3em;">
+      <button type="button" class="btn on btn-block" onclick="change_state([3, 5, 7, 11, 13, 15, 19, 21], true)">All On</button>
+      <button type="button" class="btn off btn-block" onclick="change_state([3, 5, 7, 11, 13, 15, 19, 21], false)">All Off</button>
+    </div>
+
+    <script src="/web/js/master.js" charset="utf-8"></script>
+  </body>
+</html>
