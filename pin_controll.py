@@ -17,10 +17,11 @@ async def pins(self, request):
 		if current_status == None:
 			return self.response(status=400, body=json.dumps(dict(msg=f"pin '{pin}' not found")))
 
-		if bool(status) in [True, False]:
-			GPIO.output(int(pin), bool(status))
-			s = bool(status)
-			self.pin_status[pin] = bool(status)
+		if status in ['true', 'false']:
+			ss = True if status == "true" else False
+			GPIO.output(int(pin), ss)
+			s = ss
+			self.pin_status[pin] = ss
 		else:
 			if current_status == True:
 				self.pin_status[pin] = False
