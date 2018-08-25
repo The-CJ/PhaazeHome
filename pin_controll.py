@@ -2,8 +2,9 @@ import asyncio, json
 import RPi.GPIO as GPIO
 
 async def pins(self, request):
-	p = request.query.get('pin', None)
-	status = request.query.get('status', None)
+	_POST = await request.post()
+	p = _POST.get('pin', None)
+	status = _POST.get('status', None)
 
 	multiple_pins = p.split(',')
 

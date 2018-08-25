@@ -4,7 +4,7 @@ function change_state(pins, status) {
     if (status != null) {
       p['status'] = status;
     }
-    $.get('/pins', p)
+    $.post('/pins', p)
 
 }
 
